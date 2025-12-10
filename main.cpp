@@ -1,11 +1,45 @@
 #include <iostream>
 using namespace std;
-
-int main() {
-    string nome;
-    cout << "Inserisci il tuo nome: ";
-    cin >> nome;
-    cout << "Ciao " <<nome<< "!" << endl;
+void ordina(int n, vector<int> & v  ) 
+{
+    int i, j, t;
+    i=0;
+    while ( i <= n - 1) {
+        j=0;
+        while ( j <= n - 2)
+        {
+            if (v[j] > v[j + 1]) 
+            {
+                t = v[j];
+                v[j] = v[j + 1];
+                v[j + 1] = t;
+            }
+            j=j+1;
+        }
+        i=i+1;
+    }
 }
 
-//LEGGERE LE ISTRUZIONI NEL FILE README.md
+void main() {
+     int n, i;
+    
+   n = 3;
+   vector<int> v(n);
+   vector<int> w(n);
+    i=0;
+ 
+   while ( i <= n - 1; ) {
+      v[i] = rand() % (n * 10 + 1);
+      w[i] = rand() % (n * 10 + 1);
+      i=i+1;
+   }
+    
+   
+   ordina(n, v);
+
+   ordina(n, w);
+
+
+}
+
+
